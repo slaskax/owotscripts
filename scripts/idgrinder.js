@@ -1,4 +1,4 @@
-/* yagton's "ID Grinder" script (version 4)
+/* yagton's "ID Grinder" script (version 5)
  * NOTICE: While running this script, your OWOT tab will be effectively frozen
  *         until it's finished, and any chat messages/edits made during this
  *         time may not be received/sent by your client.
@@ -21,6 +21,10 @@ function isGood(a) {
 // Tip: If you want to start the script again after you've loaded it once,
 // you can just rerun this function; no need to load the whole script again.
 function grindID() {
+    // Set reconnectTimeout to 0 to improve speed.
+    var oldTimeout = socket.reconnectTimeout;
+    socket.reconnectTimeout = 0;
+    
     // Make sure there aren't any other instances.
     if (idg_state != 0) {
         console.log("An instance of this script is already running! Refusing to start.");
@@ -38,8 +42,12 @@ function grindID() {
         apply: function(target, _, args) {
             if (isGood(args[0].id) || idg_state == -1) {
                 console.log(`Stopping! Your new ID is: ${args[0].id}`);
-                ws_functions.channel = old_function;
                 idg_state = 0;
+                
+                // Restore environment to what it was previously set to.
+                ws_functions.channel = old_function;
+                socket.reconnectTimeout = oldTimeout;
+                
                 return target(...args);
             } else {
                 socket.refresh();
