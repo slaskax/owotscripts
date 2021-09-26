@@ -11,7 +11,7 @@
  * For more information, please refer to <http://unlicense.org/> */
 var socket = new WebSocket(ws_path);
 
-s.onmessage = function (a) {
+socket.onmessage = function (a) {
   var data = JSON.parse(a.data);
   if (data.kind == "tileUpdate") {
     for (const i in d.tiles) {
