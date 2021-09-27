@@ -1,4 +1,4 @@
-/* yagton's "Watchtower" script (version 1)
+/* yagton's "Watchtower" script (version 1.1)
  * This is a simple script that opens a WebSocket and listens for tileUpdate messages.
  * After it recieves such a message, it will output the location of the update to the console.
  * The purpose of this script is so you can effectivly see where any edit is happening on an OWOT page.
@@ -14,7 +14,7 @@ var socket = new WebSocket(ws_path);
 socket.onmessage = function (a) {
   var data = JSON.parse(a.data);
   if (data.kind == "tileUpdate") {
-    for (const i in d.tiles) {
+    for (const i in data.tiles) {
       var nums = i.split(',').map(x => parseInt(x));
       var positionX = Math.floor(nums[1] / coordSizeX);
       var positionY = Math.floor(-nums[0] / coordSizeY);
