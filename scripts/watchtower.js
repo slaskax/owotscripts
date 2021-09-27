@@ -1,4 +1,4 @@
-/* yagton's "Watchtower" script (version 2)
+/* yagton's "Watchtower" script (version 3)
  * This is a simple script that opens a WebSocket and listens for tileUpdate messages.
  * After it recieves such a message, it will output the location of the update to the console.
  * The purpose of this script is so you can see where edits are happening on an OWOT world.
