@@ -7,9 +7,12 @@
  * NOTICES:
  *     1. This script has a known "off-by-one" bug. I have tried several times to fix it,
  *        but have not succeeded. If you find out how to fix it, *please* let me know.
- *.    2. Enabling notifications can cause lag if there's a lot of updates happening
- *.       in rapid succession.
+ *     2. Enabling notifications can cause lag if there's a lot of updates happening
+ *        in rapid succession.
  * 
+ * CONTRIBUTIONS:
+ *   - Vince0110 (added notifications)
+ *
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 // "tileUpdate notifications" menu option
