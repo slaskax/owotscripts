@@ -8,7 +8,7 @@
  * NOTICES:
  *     1. This script has a known "off-by-one" bug. I have tried several times to fix it,
  *        but have not succeeded. If you find out how to fix it, *please* let me know.
- *     2.   notifications can cause lag if there's a lot of updates happening
+ *     2. Enabling notifications can cause lag if there's a lot of updates happening
  *        in rapid succession.
  * 
  * CONTRIBUTIONS:
