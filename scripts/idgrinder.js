@@ -35,7 +35,7 @@ function grindID() {
     // Proxies ws_functions.channel() to intercept when a new ID is received from
     // the server. If the ID is approved by isGood(), the proxy is removed and
     // the original function then runs normally; but if it's not approved, it will
-    // run newID() again and again until it eventually is.
+    // run socket.refresh() again and again until it eventually is.
     var old_function = ws_functions.channel;
 
     ws_functions.channel = new Proxy(ws_functions.channel, {
