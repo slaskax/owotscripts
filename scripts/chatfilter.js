@@ -1,4 +1,4 @@
-/* yagton's "Chat Filter" script (version 3)
+/* yagton's "Chat Filter" script (version 3.1)
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
@@ -109,22 +109,22 @@ var block_subcommands = {
 
         out += `=== Strings (${filter_rules.string.length})<br>`;
         for (const i of filter_rules.string) {
-            out += `  * ${html_tag_esc(i)}<br>`;
+            out += `&nbsp;&nbsp;* ${html_tag_esc(i)}<br>`;
         }
 
         out += `=== Nicknames (${filter_rules.nick.length})<br>`;
         for (const i of filter_rules.nick) {
-            out += `  * ${html_tag_esc(i)}<br>`;
+            out += `&nbsp;&nbsp;* ${html_tag_esc(i)}<br>`;
         }
 
         out += `=== Users (${filter_rules.user.length})<br>`;
         for (const i of filter_rules.user) {
-            out += `  * ${html_tag_esc(i)}<br>`;
+            out += `&nbsp;&nbsp;* ${html_tag_esc(i)}<br>`;
         }
 
         out += `=== IDs (${filter_rules.id.length})<br>`;
         for (const i of filter_rules.id) {
-            out += `  * ${html_tag_esc(i.toString())}<br>`;
+            out += `&nbsp;&nbsp;* ${html_tag_esc(i.toString())}<br>`;
         }
 
         htmlOut(out);
