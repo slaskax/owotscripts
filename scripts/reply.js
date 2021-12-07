@@ -1,4 +1,4 @@
-/* yagton's "Reply" script (version 1)
+/* yagton's "Reply" script (version 1.1)
  * This script adds an /r command to quickly reply to the last PM recieved.
  *
  * This is free and unencumbered software released into the public domain.
@@ -7,6 +7,8 @@
 var last_pm = undefined;
 
 w.on("chatmod", (e) => {
+    if (e.hide) return;
+    
     if (e.dataObj.privateMessage && e.dataObj.privateMessage == "to_me") {
         last_pm = e.id;
     }
