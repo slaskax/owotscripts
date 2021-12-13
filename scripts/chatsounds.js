@@ -1,4 +1,4 @@
-/* yagton's "Chat Sounds" script (version 1)
+/* yagton's "Chat Sounds" script (version 1.1)
  * This script plays an audible tone when a message is recieved in chat.
  *
  * ACKNOWLEDGEMENT: The user "salt" came up with the idea for this script.
@@ -14,7 +14,7 @@ var aud = new Audio("https://files.catbox.moe/vz8x24.mp3");
 
 w.on("chatmod", function (msg) {
     if (!msg.hide) {
-        aud.fastSeek(0);
+        aud.currentTime = 0;
         aud.play();
     }
 });
