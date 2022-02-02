@@ -1,4 +1,4 @@
-/* yagton's "Chat Filter" script (version 3.1)
+/* yagton's "Chat Filter" script (version 3.2)
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
@@ -265,7 +265,8 @@ function shoudHide(event) {
 
 /* Adds an anonymous function as a chatmod event listener, which calls
  * shouldHide() to determine if a message should be hidden or not. */
-w.on("chatmod", (chat_event) => {
+w.events["chatmod"] = w.events["chatmod"] || [];
+w.events["chatmod"].unshift((chat_event) => {
     if (shoudHide(chat_event)) {
         chat_event.hide = true;
     }
