@@ -1,4 +1,4 @@
-/* yagcore (v1.0.0): a bunch of somewhat-useful things
+/* yagcore: a bunch of somewhat-useful things
  * I noticed that a lot of my projects shared very similar, or sometimes
  * even identical pieces of code; so, I put them  here so I don't have to
  * repeat myself. Feel free to use this if you want, though it is first and
@@ -7,9 +7,7 @@
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
-const YAGCORE_LOADED = true;
-const YAGCORE_VERSION = "1.0.0";
-
+const YAGCORE_VERSION = "1.1.0";
 const yagcore = (() => {
     // So we can keep track of any user's last seen ID.
     let user2id = {};
