@@ -10,7 +10,7 @@
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
-const YAGCORE_VERSION = "1.1.3";
+const YAGCORE_VERSION = "1.1.4";
 const yagcore = (() => {
     // So we can keep track of any user's last seen ID.
     let user2id = {};
@@ -99,7 +99,7 @@ const yagcore = (() => {
         clearIntercept: (n) => {
             for (let i = 0; i < intercepts.length; ++i)
                 if (intercepts[i].id === n)
-                    delete intercepts[i];
+                    intercepts.splice(i, 1);
 
             throw `Could not find intercept with ID ${n}!`;
         },
