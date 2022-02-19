@@ -1,9 +1,21 @@
-/* yagton's "Chat Filter" script (version 3.2)
+/* yagton's "Chat Filter" script (version 3.3)
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
+// Load yagcore library.
+await (async () => {
+    if (typeof yagcore === "undefined") {
+        // change 2e163c0 here to the specific commit you need/want.
+        const r = await fetch("https://cdn.jsdelivr.net/gh/tlras/owotscripts@2e163c0/scripts/yagcore.js");
+        Function(await r.text())();
+    }
+})();
+
 // If this flag is set to true, your block list will persist between runs.
 const CF_PERSIST = true;
+
+// How the chatfilter response will look.
+const CF_USER = ["[ ChatFilter ]", "#333"];
 
 /* Internally used variable for keeping track of filter rules.
  * These are the default values for it. They can (and should) be changed
@@ -30,18 +42,6 @@ function saveRules() {
     delete copy.id;
 
     localStorage.setItem("cf_rules", JSON.stringify(copy));
-}
-
-/**********************************************************
- * OUTPUT FUNCTIONS
- *********************************************************/
-
-function textOut(message) {
-    addChat(null, 0, "user", "[ ChatFilter ]", message, "Filter", false, false, false, "#333", getDate());
-}
-
-function htmlOut(message) {
-    addChat(null, 0, "user", "[ ChatFilter ]", message, "Filter", true, false, false, "#333", getDate());
 }
 
 /**********************************************************
@@ -93,7 +93,7 @@ var block_subcommands = {
     id: (args) => {
         var id = parseInt(args[0]);
         if (Number.isNaN(id)) {
-            textOut("Invalid ID.");
+            yc.textOut("Invalid ID.", ...CF_USER);
             return CF_RETURNS.CUSTOM_OUTPUT;
         }
 
@@ -127,7 +127,7 @@ var block_subcommands = {
             out += `&nbsp;&nbsp;* ${html_tag_esc(i.toString())}<br>`;
         }
 
-        htmlOut(out);
+        yc.htmlOut(out, ...CF_USER);
         return CF_RETURNS.CUSTOM_OUTPUT;
     }
 };
@@ -160,7 +160,7 @@ var unblock_subcommands = {
     id: (args) => {
         var id = parseInt(args[0]);
         if (Number.isNaN(id)) {
-            textOut("Invalid ID.")
+            yc.textOut("Invalid ID.", ...CF_USER);
             return CF_RETURNS.CUSTOM_OUTPUT;
         }
 
@@ -173,54 +173,54 @@ var unblock_subcommands = {
     all: (_) => {
         filter_rules = JSON.parse(filter_rules_defaults);
         saveRules();
-        textOut("Block list has been cleared.");
+        yc.textOut("Block list has been cleared.", ...CF_USER);
         return CF_RETURNS.CUSTOM_OUTPUT;
     }
 };
 
 // Add the extented /block command to chat.
-client_commands = Object.assign(client_commands, {
-    block: (args) => {
-        if (args.length < 1) {
-            textOut("No subcommand provided.");
-            return;
-        }
+yc.addCommand("block", (args) => {
+    if (args.length < 1) {
+        yc.textOut("No subcommand provided.", ...CF_USER);
+        return;
+    }
 
-        if (block_subcommands[args[0]] !== undefined) {
-            var ret = block_subcommands[args[0]](args.slice(1));
-            switch (ret) {
-                case CF_RETURNS.RULES_CHANGED:
-                    if (CF_PERSIST) saveRules();
-                    textOut("Rule has been added.")
-                    break;
-                case CF_RETURNS.ALREADY_EXISTS:
-                    textOut("Rule already exists.");
-                    break;
-            }
-        } else {
-            textOut("Unknown subcommand.")
+    if (block_subcommands[args[0]] !== undefined) {
+        var ret = block_subcommands[args[0]](args.slice(1));
+        switch (ret) {
+            case CF_RETURNS.RULES_CHANGED:
+                if (CF_PERSIST) saveRules();
+                yc.textOut("Rule has been added.", ...CF_USER)
+                break;
+            case CF_RETURNS.ALREADY_EXISTS:
+                yc.textOut("Rule already exists.", ...CF_USER);
+                break;
         }
-    },
-    unblock: (args) => {
-        if (args.length < 1) {
-            textOut("No subcommand provided.");
-            return;
-        }
+    } else {
+        yc.textOut("Unknown subcommand.", ...CF_USER)
+    }
+});
 
-        if (unblock_subcommands[args[0]] !== undefined) {
-            var ret = unblock_subcommands[args[0]](args.slice(1));
-            switch (ret) {
-                case CF_RETURNS.RULES_CHANGED:
-                    if (CF_PERSIST) saveRules();
-                    textOut("Rule has been removed.")
-                    break;
-                case CF_RETURNS.DOES_NOT_EXIST:
-                    textOut("Rule does not exist.");
-                    break;
-            }
-        } else {
-            textOut("Unknown subcommand.")
+// Add the /unblock command.
+yc.addCommand("unblock", (args) => {
+    if (args.length < 1) {
+        yc.textOut("No subcommand provided.", ...CF_USER);
+        return;
+    }
+
+    if (unblock_subcommands[args[0]] !== undefined) {
+        var ret = unblock_subcommands[args[0]](args.slice(1));
+        switch (ret) {
+            case CF_RETURNS.RULES_CHANGED:
+                if (CF_PERSIST) saveRules();
+                yc.textOut("Rule has been removed.", ...CF_USER);
+                break;
+            case CF_RETURNS.DOES_NOT_EXIST:
+                textOut("Rule does not exist.");
+                break;
         }
+    } else {
+        yc.textOut("Unknown subcommand.", ...CF_USER);
     }
 });
 
