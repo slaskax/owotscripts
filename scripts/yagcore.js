@@ -10,7 +10,7 @@
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
-const YAGCORE_VERSION = "1.1.2";
+const YAGCORE_VERSION = "1.1.3";
 const yagcore = (() => {
     // So we can keep track of any user's last seen ID.
     let user2id = {};
