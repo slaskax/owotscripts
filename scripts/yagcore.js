@@ -7,7 +7,7 @@
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
-const YAGCORE_VERSION = "1.1.1";
+const YAGCORE_VERSION = "1.1.2";
 const yagcore = (() => {
     // So we can keep track of any user's last seen ID.
     let user2id = {};
@@ -48,6 +48,27 @@ const yagcore = (() => {
         if (ws_functions[data.kind])
             ws_functions[data.kind](data);
     }
+
+    // Abstaction of addChat used by textOut & htmlOut.
+    function outFunc(message, nick, color, allow_html) {
+            if (typeof nick === "undefined")
+                throw "[yagcore] No nick provided.";
+            color = color ?? assignColor(nick);
+        
+            addChat(
+                null,
+                0,
+                "user",
+                nick,
+                message,
+                nick,
+                allow_html,
+                false,
+                false,
+                color,
+                getDate()
+            );
+   }
 
     console.log("[yagcore] loaded");
     return {
@@ -94,43 +115,15 @@ const yagcore = (() => {
 
         // Simplier alternative to addChat.
         textOut: (message, nick, color) => {
-            color = color || assignColor(nick);
-        
-            addChat(
-                null,
-                0,
-                "user",
-                nick,
-                message,
-                nick,
-                false,
-                false,
-                false,
-                color,
-                getDate()
-            );
+            outFunc(message, nick, color, false);
         },
 
         /* Same thing as textOut(), but it supports HTML output.
          * If you use this, make sure to call html_tag_escape() on anything
          * you don't want rendered as HTML to prevent XSS attacks. */
         htmlOut: (message, nick, color) => {
-            color = color || assignColor(nick);
-        
-            addChat(
-                null,
-                0,
-                "user",
-                nick,
-                message,
-                nick,
-                true,
-                false,
-                false,
-                color,
-                getDate()
-            );
-        },
+            outFunc(message, nick, color, true);
+        }
     };
 })();
 
