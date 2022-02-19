@@ -7,7 +7,7 @@
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
-const YAGCORE_VERSION = "1.1.0";
+const YAGCORE_VERSION = "1.1.1";
 const yagcore = (() => {
     // So we can keep track of any user's last seen ID.
     let user2id = {};
@@ -94,7 +94,7 @@ const yagcore = (() => {
 
         // Simplier alternative to addChat.
         textOut: (message, nick, color) => {
-            color = color || assignColor(user);
+            color = color || assignColor(nick);
         
             addChat(
                 null,
@@ -115,7 +115,7 @@ const yagcore = (() => {
          * If you use this, make sure to call html_tag_escape() on anything
          * you don't want rendered as HTML to prevent XSS attacks. */
         htmlOut: (message, nick, color) => {
-            color = color || assignColor(user);
+            color = color || assignColor(nick);
         
             addChat(
                 null,
