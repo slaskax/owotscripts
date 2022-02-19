@@ -10,7 +10,7 @@
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
-const YAGCORE_VERSION = "1.1.5";
+const YAGCORE_VERSION = "1.1.6";
 const yagcore = (() => {
     // So we can keep track of any user's last seen ID.
     let user2id = {};
@@ -110,7 +110,7 @@ const yagcore = (() => {
          * To prevent this when needed, set overwrite to true. */
         addCommand: (cmd, func, overwrite = false) => {
             if (typeof client_commands[cmd] !== "undefined" && !overwrite) {
-                throw new Error("This command is already defined!");
+                throw `[yagcore] /${cmd} is already defined!`;
             }
         
             client_commands[cmd] = func;
