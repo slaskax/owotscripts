@@ -85,11 +85,15 @@ const yagcore = (() => {
 
         // Set kind to null to run on any message.
         setIntercept: (kind, func) => {
+            let id = intercept_count++;
+            
             intercepts.unshift({
-                "id": intercept_count++,
+                "id": id,
                 "kind": kind,
                 "func": func
             });
+            
+            return id;
         },
 
         clearIntercept: (n) => {
