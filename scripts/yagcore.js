@@ -3,6 +3,9 @@
  * even identical pieces of code; so, I put them  here so I don't have to
  * repeat myself. Feel free to use this if you want, though it is first and
  * foremost for my projects, so don't expect a whole ton of fancy features.
+ *
+ * You can load yagcore using the code found here:
+ *     - https://gist.github.com/tlras/0da75c77bdfb543934eda97ffa401b24
  * 
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
