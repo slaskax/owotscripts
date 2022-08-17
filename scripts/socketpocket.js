@@ -1,4 +1,4 @@
-/* yagton's Socket Pocket (version 1)
+/* yagton's Socket Pocket (version 1.1)
  * The purpose of this script allows you to use OWOT with multiple sockets
  * without the need for multiple tabs to be open.
  * 
@@ -60,7 +60,7 @@ client_commands.chsock = (args) => {
         inform("Invalid ID.", ...YG_SP_USER);
     
     socket.socket = sslots[id];
-    inform(`Changed to slot #${id}.`);
+    inform(`Changed to slot #${id}.`, ...YG_SP_USER);
 }
 
 client_commands.delsock = (args) => {
@@ -71,5 +71,5 @@ client_commands.delsock = (args) => {
     
     sslots[id].close();
     delete sslots[id];
-    inform(`Removed slot #${id}.`);
+    inform(`Removed slot #${id}.`, ...YG_SP_USER);
 }
