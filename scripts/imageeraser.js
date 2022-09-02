@@ -1,4 +1,4 @@
-/* yagton's "Image Eraser" script (version 1)
+/* yagton's "Image Eraser" script (version 1.1)
  * Easy to use: just press Ctrl+E, click the image, and it's gone!
  *
  * This is free and unencumbered software released into the public domain.
@@ -29,7 +29,6 @@ w.on("keyDown", e => {
 });
 
 w.on("mouseDown", e => {
-    console.log(e, erase_mode);
     if (!erase_mode) return;
     let x = (e.tileX * tileC) + e.charX,
         y = (e.tileY * tileR) + e.charY;
