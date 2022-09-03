@@ -1,6 +1,9 @@
 /* yagton's "Image Eraser" script (version 1.1)
  * Easy to use: just press Ctrl+E, click the image, and it's gone!
  *
+ * ACKNOWLEDGEMENT: Setting flush interval to 0 in order to improve
+ *                  speed was Nitsua's idea. Thanks for your contribution!
+ *
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
@@ -37,3 +40,5 @@ w.on("mouseDown", e => {
     owot.style.cursor = defaultCursor = "text";
     flood(x, y);
 });
+
+w.setFlushInterval(0);
