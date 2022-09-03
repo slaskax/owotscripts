@@ -1,4 +1,4 @@
-/* yagton's "Image Eraser" script (version 3.1)
+/* yagton's "Image Eraser" script (version 3.2)
 * Easy to use: just press Ctrl+E, click the image, and it's gone!
 *
 * ACKNOWLEDGEMENT: Setting flush interval to 0 in order to improve
@@ -13,7 +13,7 @@ let erase_mode = false;
 function flood(x, y) {
     let nodes = [[x, y]];
     while (nodes.length) {
-        let loc = nodes.unshift();
+        let loc = nodes.shift();
         let info = getCharInfoXY(...loc);
         if (info.char === "█" && info.protection === 0) {
             writeCharToXY(" ", "#FFFFFF", ...loc);
