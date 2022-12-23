@@ -1,4 +1,4 @@
-/* yagton's "Neat Nicknames" scritps (version 1)
+/* yagton's "Neat Nicknames" script (version 1)
  * 
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
