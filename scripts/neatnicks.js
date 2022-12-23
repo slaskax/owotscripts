@@ -13,7 +13,7 @@ function gen_nick(left, right, left_colon) {
     let result = "";
 
     if (left !== null) result += `${left}${left_colon?"":" "}`;
-    if (right !== null) result += `\u202e${right.split("").reverse().join("")}${left_colon?" ":""}`
+    if (right !== null) result += `\u202e${right.split("").reverse().join("")}${left_colon?" ":""}`;
     if (left_colon) result += "\u202d";
 
     return result;
