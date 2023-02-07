@@ -8,6 +8,7 @@
  let tunes = [
     /* put the url to the song files you want here; any file host should work
      * the defaults are just for example, replace them with whatever ya like */
+    "https://files.catbox.moe/hkmis2.m4a",
     "https://files.catbox.moe/sqb10t.m4a",
     "https://files.catbox.moe/e9tesm.m4a",
     "https://files.catbox.moe/hxabbj.m4a",
