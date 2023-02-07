@@ -5,7 +5,7 @@
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
- let tunes = [
+let tunes = [
     /* put the url to the song files you want here; any file host should work
      * the defaults are just for example, replace them with whatever ya like */
     "https://files.catbox.moe/hkmis2.m4a",
