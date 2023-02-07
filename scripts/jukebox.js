@@ -1,4 +1,4 @@
-/* yagton's "Jukebox" script (version 1)
+/* yagton's "Jukebox" script (version 2)
  * This is a script plays songs randomly from a list and adds some controls
  * to the menu. It's pretty simplistic right now and may be extended later.
  *
@@ -21,14 +21,13 @@
     "https://files.catbox.moe/xjgmig.m4a",
 ];
 
-let autoplay = true;
 let current_audio = null;
-let volume = localStorage.getItem("last_volume") ?? 0.5;
+let autoplay = JSON.parse(localStorage.getItem("autoplay")) ?? true;
+let volume = JSON.parse(localStorage.getItem("last_volume"))?? 0.5;
 
 function change_song() {
     if (current_audio !== null) {
         current_audio.pause();
-        current_audio = null;
     }
 
     current_audio = new Audio(tunes[Math.floor(Math.random() * tunes.length)]);
@@ -89,7 +88,13 @@ menu.addEntry((() => {
 
 menu.addCheckboxOption(
     "Autoplay",
-    () => (autoplay = true),
-    () => (autoplay = false),
-    false
+    () => {
+        autoplay = true;
+        localStorage.setItem("autoplay", true);
+    },
+    () => {
+        autoplay = false;
+        localStorage.setItem("autoplay", false);
+    },
+    autoplay
 );
