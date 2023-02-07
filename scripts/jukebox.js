@@ -6,7 +6,7 @@
  * For more information, please refer to <http://unlicense.org/> */
 
  let tunes = [
-    /* put the url to the song files you want here; the file host must allow CORS
+    /* put the url to the song files you want here; any file host should work
      * the defaults are just for example, replace them with whatever ya like */
     "https://files.catbox.moe/sqb10t.m4a",
     "https://files.catbox.moe/e9tesm.m4a",
