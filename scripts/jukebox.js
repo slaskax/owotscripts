@@ -23,7 +23,7 @@
 
 let current_audio = null;
 let autoplay = JSON.parse(localStorage.getItem("autoplay")) ?? true;
-let volume = JSON.parse(localStorage.getItem("last_volume"))?? 0.5;
+let volume = JSON.parse(localStorage.getItem("last_volume")) ?? 0.5;
 
 function change_song() {
     if (current_audio !== null) {
