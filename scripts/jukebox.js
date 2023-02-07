@@ -1,4 +1,4 @@
-/* yagton's "Jukebox" script (version 3)
+/* yagton's "Jukebox" script (version 3.1)
  * This is a script plays songs randomly from a list and adds some controls
  * to the menu. It's pretty simplistic right now and may be extended later.
  *
@@ -71,11 +71,12 @@ menu.addEntry((() => {
     let volume_bar = document.createElement("input");
     volume_bar.setAttribute("type", "range");
     volume_bar.setAttribute("min", "0");
-    volume_bar.setAttribute("max", "100");
-    volume_bar.value = volume * 100;
+    volume_bar.setAttribute("max", "1");
+    volume_bar.setAttribute("step", "0.01");
+    volume_bar.value = volume;
     volume_bar.style.width = "100%";
     volume_bar.addEventListener("input", () => {
-        volume = volume_bar.value / 100;
+        volume = volume_bar.value;
         localStorage.setItem("last_volume", volume);
         if (current_audio !== null) {
             current_audio.volume = volume;
