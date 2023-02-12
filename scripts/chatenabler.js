@@ -1,4 +1,4 @@
-/* yagton's "Chat Enabler" script (version 1)
+/* yagton's "Chat Enabler" script (version 2)
  * This script re-enables chat on a world that had it disabled by the owner.
  *
  * This is free and unencumbered software released into the public domain.
@@ -16,6 +16,7 @@
         window.selectedChatTab = 0;
         ws_functions.propUpdate({props: [{type: "chat", value: 0}]});
         w.showChat();
+        elm.chat_open.style.backgroundColor = "#990000";
 
         sock.onmessage = msg => {
             let data = JSON.parse(msg.data);
