@@ -1,4 +1,4 @@
-/* yagton's "Watchtower" script (version 3.1)
+/* yagton's "Watchtower" script (version 3.2)
  * This is a simple script listens on the active WebSocket for tileUpdate messages.
  * After it recieves such a message, it outputs the location of the update to the
  * console, or as a notification if the menu option is enabled. The primary purpose
@@ -20,8 +20,9 @@
  *
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
-// "tileUpdate notifications" menu option
-var notifsEnabled = false;
+
+ // "tileUpdate notifications" menu option
+let notifsEnabled = false;
 
 menu.addCheckboxOption(
     "tileUpdate notifications",
@@ -37,8 +38,9 @@ w.on("tileUpdate", (e) => {
         let nums = i.split(",").map((x) => parseInt(x));
         let positionX = Math.floor(nums[1] / coordSizeX);
         let positionY = Math.floor(-nums[0] / coordSizeY);
-
-        console.log(`tileUpdate at ${positionX}, ${positionY}.`);
+    
+        const output = `tileUpdate at ${positionX}, ${positionY}.`;
+        console.log(output);
         if (notifsEnabled) {
             if (Notification.permission !== "granted") {
                 Notification.requestPermission();
