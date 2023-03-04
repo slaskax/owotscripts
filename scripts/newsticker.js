@@ -1,4 +1,4 @@
-/* yagton's "News Ticker" script (version 1.2)
+/* yagton's "News Ticker" script (version 1.3)
 * I saw a neat news ticker on OWOT one day, so I decided to implement
 * my own public-domain version. Change the variables prefixed with
 * `news_` to change the location, width, and contents of the ticker.
@@ -21,7 +21,8 @@ function writeStringAt(s, color, loc) {
 
 let text_pos = -news_width;
 setInterval(() => {
-    let subsect = news_text.slice(Math.max(0, text_pos), text_pos + news_width);
+    const text = news_text.padEnd(news_width, ' ');
+    let subsect = text.slice(Math.max(0, text_pos), text_pos + news_width);
 
     text_pos += 1;
     if (text_pos > news_text.length)
