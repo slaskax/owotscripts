@@ -6,7 +6,7 @@
 * This is free and unencumbered software released into the public domain.
 * For more information, please refer to <http://unlicense.org/> */
 
-let news_location = [-1, -2, 0, 2 ];
+let news_location = [-1, -2, 0, 2];
 let news_width = 32;
 
 let news_text = "put your news text here! it can be as long as you want"
