@@ -9,7 +9,7 @@
 let news_location = [-1, -2, 0, 2 ];
 let news_width = 32;
 
-let news_text = "testing out my own news ticker code hehe ~yagton | may or may not release code idk"
+let news_text = "put your news text here! it can be as long as you want"
 let news_color = 0xcc241d;
 
 function writeStringAt(s, color, loc) {
