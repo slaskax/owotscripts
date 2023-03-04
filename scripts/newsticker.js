@@ -1,4 +1,4 @@
-/* yagton's "News Ticker" script (version 1)
+/* yagton's "News Ticker" script (version 1.1)
 * I saw a neat news ticker on OWOT one day, so I decided to implement
 * my own public-domain version. Change the variables prefixed with
 * `news_` to change the location, width, and contents of the ticker.
@@ -32,7 +32,7 @@ setInterval(() => {
         : subsect.padEnd(news_width, ' ');
 
 
-    writeStringAt(subsect, 0xcc241d /* color */, news_location);
+    writeStringAt(subsect, news_color, news_location);
 }, 100);
 
 w.setFlushInterval(0);
