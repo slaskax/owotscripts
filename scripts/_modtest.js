@@ -1,3 +1,3 @@
 // file for testing purposes
-console.log([isModule, modPrefix]);
+console.log([isModule, modPrefixes]);
 use("./darkchat.js");
