@@ -10,10 +10,9 @@
  *        but have not succeeded. If you find out how to fix it, *please* let me know.
  *     2. Enabling notifications can cause lag if there's a lot of updates happening
  *        in rapid succession.
- *     3. Since the new features in Watchtower v4 can be potentially exploited for
- *        nefarious purposes, I have decided to not release it publicly, but rather
- *        privately to a select few who I deem safe. The public version of Watchtower
- *        will be staying at version v3 indefinitely with the exception of bug fixes.
+ *     3. Due to an update to OWOT, only local updates are shown to the client, which
+ *        renders this software deprecated; nevertheless, the file will be kept for
+ *        historical preservation.
  *
  * CONTRIBUTIONS:
  *     - Vince0110 (added notifications)
