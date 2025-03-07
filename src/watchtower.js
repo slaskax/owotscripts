@@ -1,4 +1,4 @@
-/* yagton's "Watchtower" script (version 3.2)
+/* fern's "Watchtower" script (version 3.2)
  * This is a simple script listens on the active WebSocket for tileUpdate messages.
  * After it recieves such a message, it outputs the location of the update to the
  * console, or as a notification if the menu option is enabled. The primary purpose

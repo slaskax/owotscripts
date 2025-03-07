@@ -1,4 +1,4 @@
-/* yagton's "Chat Sounds" script (version 1.1)
+/* fern's "Chat Sounds" script (version 1.1)
  * This script plays an audible tone when a message is recieved in chat.
  *
  * ACKNOWLEDGEMENT: The user "salt" came up with the idea for this script.

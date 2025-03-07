@@ -1,4 +1,4 @@
-/* yagton's "News Ticker" script (version 1.3)
+/* fern's "News Ticker" script (version 1.3)
  * I saw a neat news ticker on OWOT one day, so I decided to implement
  * my own public-domain version. Change the variables prefixed with
  * `news_` to change the location, width, and contents of the ticker.

@@ -1,4 +1,4 @@
-/* yagton's "Jukebox" script (version 3.1)
+/* fern's "Jukebox" script (version 3.1)
  * This is a script plays songs randomly from a list and adds some controls
  * to the menu. It's pretty simplistic right now and may be extended later.
  *

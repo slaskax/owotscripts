@@ -1,4 +1,4 @@
-/* yagton's ID Grinder (version 6)
+/* fern's ID Grinder (version 6)
  * 
  * I completely rewrote this from scratch because the original was so bad.
  * Here's a list of changes from the original version:

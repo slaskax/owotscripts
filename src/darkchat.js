@@ -1,4 +1,4 @@
-/* yagton's "Dark Chat" script (version 1)
+/* fern's "Dark Chat" script (version 1)
  * This script makes the chatox dark themed (specifically Gruvbox Dark).
  *
  * This is free and unencumbered software released into the public domain.

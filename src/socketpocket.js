@@ -1,4 +1,4 @@
-/* yagton's Socket Pocket (version 1.2)
+/* fern's Socket Pocket (version 1.2)
  * The purpose of this script allows you to use OWOT with multiple sockets
  * without the need for multiple tabs to be open.
  * 

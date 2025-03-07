@@ -1,4 +1,4 @@
-/* yagton's "Image Eraser" script (version 5)
+/* fern's "Image Eraser" script (version 5)
 * Easy to use: just press Ctrl+E, click the image, and it's gone!
 *
 * ACKNOWLEDGEMENT: Setting flush interval to 0 in order to improve

@@ -1,4 +1,4 @@
-/* yagton's "Chat Enabler" script (version 2.1)
+/* fern's "Chat Enabler" script (version 2.1)
  * This script re-enables chat on a world that had it disabled by the owner.
  *
  * This is free and unencumbered software released into the public domain.

@@ -1,8 +1,6 @@
-/* yagton's "Chat Filter" script (version 3.3)
+/* fern's "Chat Filter" script (version 3.3)
  *
- * NOTE: The functionality of the script has been moved to Chat++,
- *       and no more updates will occur for this reason.
- *       Go to [https://github.com/tlras/chatpp] for updates.
+ * NOTE: This script is due for refactoring and will likely be updated soon.
  *
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */

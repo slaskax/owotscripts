@@ -1,4 +1,4 @@
-/* yagton's "Reply" script (version 1.1)
+/* fern's "Reply" script (version 1.1)
  * This script adds an /r command to quickly reply to the last PM recieved.
  *
  * NOTE: The functionality of the script has been moved to Chat++,

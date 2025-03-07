@@ -7,6 +7,9 @@
  * You can load yagcore using the code found here:
  *     - https://gist.github.com/tlras/0da75c77bdfb543934eda97ffa401b24
  * 
+ * NOTE: This library is deprecated; no updates will be released for this
+ *       software, please do not use in new projects.
+ * 
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to <http://unlicense.org/> */
 
